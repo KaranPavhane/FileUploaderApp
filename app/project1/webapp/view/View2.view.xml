@@ -1,0 +1,81 @@
+<mvc:View
+    controllerName="project1.controller.View2"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns:m="sap.m"
+    xmlns:u="sap.ui.unified"
+>
+    <m:Page
+        id="page2"
+        title="Upload File"
+    >
+        <m:VBox 
+            width="100%"
+            height="100px"
+            justifyContent="Center"
+            alignItems="Center"
+        >
+            <l:VerticalLayout>
+                <u:FileUploader
+                    id="fileUploader"
+                    name="myFileUpload"
+                    placeholder="Select File for Upload"
+                    uploadUrl="upload/"
+                    tooltip="Upload your file to the local server"
+                    uploadComplete="handleUploadComplete"
+                />
+                <m:Button
+                    text="Upload File"
+                    press="handleUploadPress"
+                />
+            </l:VerticalLayout>
+        </m:VBox>
+
+        <m:VBox class="sapUiSmallMargin">
+               
+            <m:Toolbar>
+                <m:Title text="Uploaded Product Data" level="H2" />
+            </m:Toolbar>
+
+           
+            <m:Table
+                id="productTable"
+                items="{obj>/excelData}"
+                width="100%"
+                inset="false"
+                class="sapUiSmallMargin"
+            >
+                <m:columns>
+                    <m:Column><m:Text text="Product ID" /></m:Column>
+                    <m:Column><m:Text text="Product Name" /></m:Column>
+                    <m:Column><m:Text text="Supplier ID" /></m:Column>
+                    <m:Column><m:Text text="Category ID" /></m:Column>
+                    <m:Column><m:Text text="Quantity Per Unit" /></m:Column>
+                    <m:Column><m:Text text="Unit Price" /></m:Column>
+                    <m:Column><m:Text text="Units In Stock" /></m:Column>
+                    <m:Column><m:Text text="Units On Order" /></m:Column>
+                    <m:Column><m:Text text="Reorder Level" /></m:Column>
+                    <m:Column><m:Text text="Error" /></m:Column>
+                </m:columns>
+
+                <m:items>
+                    <m:ColumnListItem>
+                        <m:cells>
+                            <m:Text text="{obj>ProductID}" />
+                            <m:Text text="{obj>ProductName}" />
+                            <m:Text text="{obj>SupplierID}" />
+                            <m:Text text="{obj>CategoryID}" />
+                            <m:Text text="{obj>QuantityPerUnit}" />
+                            <m:Text text="{obj>UnitPrice}" />
+                            <m:Text text="{obj>UnitsInStock}" />
+                            <m:Text text="{obj>UnitsOnOrder}" />
+                            <m:Text text="{obj>ReorderLevel}" />
+                            <m:Text text="{obj>Error}" />
+                        </m:cells>
+                    </m:ColumnListItem>
+                </m:items>
+            </m:Table>
+        </m:VBox>
+    </m:Page>
+</mvc:View>

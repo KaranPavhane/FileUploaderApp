@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <SelectDialog
+        id="selectDialog"
+        title="Select Category ID"
+        items="{obj>/CategoryCollection}"
+        search=".onValueHelpSearch"
+        confirm=".onValueHelpClose"
+        cancel=".onValueHelpClose"
+        contentHeight="300px"
+        contentWidth="250px"
+        >
+
+        <StandardListItem
+            title="{obj>CategoryID}"
+            iconDensityAware="false"
+            iconInset="false" />
+    </SelectDialog>
+</core:FragmentDefinition>
